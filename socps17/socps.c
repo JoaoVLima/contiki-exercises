@@ -74,7 +74,7 @@ PROCESS_THREAD(oxygen_saturation_process, ev, data)
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&timer));
 
     // Gera um valor randômico para a saturação de oxigênio
-    oxygen_saturation = (rand() % (MAX_OXYGEN_SATURATION - MIN_OXYGEN_SATURATION + 1)) + MIN_OXYGEN_SATURATION;
+    oxygen_saturation = (random_rand() % (MAX_OXYGEN_SATURATION - MIN_OXYGEN_SATURATION + 1)) + MIN_OXYGEN_SATURATION;
     printf("Saturação de Oxigênio: %d%%\n", oxygen_saturation);
 
     // Verifica se a saturação está fora do intervalo normal
@@ -102,7 +102,7 @@ PROCESS_THREAD(temperature_process, ev, data)
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&timer));
 
     // Gera um valor randômico para a temperatura
-    temperature = (rand() % (MAX_TEMPERATURE - MIN_TEMPERATURE + 1)) + MIN_TEMPERATURE;
+    temperature = (random_rand() % (MAX_TEMPERATURE - MIN_TEMPERATURE + 1)) + MIN_TEMPERATURE;
     printf("Temperatura: %d°C\n", temperature);
 
     // Verifica se a temperatura está fora do intervalo normal
