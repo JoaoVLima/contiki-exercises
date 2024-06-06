@@ -2,6 +2,20 @@
 #include <stdio.h>
 #include <random.h>
 
+#define MIN_HEART_RATE 20
+#define MAX_HEART_RATE 140
+#define LOW_HEART_RATE 50
+#define HIGH_HEART_RATE 90
+
+#define MIN_OXYGEN_SATURATION 80
+#define MAX_OXYGEN_SATURATION 100
+#define LOW_OXYGEN_SATURATION 90
+
+#define MIN_TEMPERATURE 34
+#define MAX_TEMPERATURE 41
+#define LOW_TEMPERATURE 35
+#define HIGH_TEMPERATURE 37
+
 PROCESS(heart_rate_process, "Monitoramento de Batimentos Cardíacos");
 PROCESS(oxygen_saturation_process, "Monitoramento de Saturação de Oxigênio");
 PROCESS(temperature_process, "Monitoramento de Temperatura");
@@ -29,7 +43,7 @@ PROCESS_THREAD(heart_rate_process, ev, data)
     PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&timer));
 
     // Gera um valor randômico para os batimentos cardíacos
-    heart_rate = (rand() % (MAX_HEART_RATE - MIN_HEART_RATE + 1)) + MIN_HEART_RATE;
+    heart_rate = (random_rand() % (MAX_HEART_RATE - MIN_HEART_RATE + 1)) + MIN_HEART_RATE;
     printf("Batimentos Cardíacos: %d bpm\n", heart_rate);
 
     // Verifica se os batimentos estão fora do intervalo normal
