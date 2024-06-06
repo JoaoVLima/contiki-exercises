@@ -21,7 +21,7 @@ PROCESS_THREAD(heart_rate_process, ev, data)
   
   PROCESS_BEGIN();
 
-  while(True) {
+  while(true) {
     // Define o temporizador para 3 segundos
     etimer_set(&timer, CLOCK_SECOND * 3);
 
@@ -52,7 +52,7 @@ PROCESS_THREAD(oxygen_saturation_process, ev, data)
   
   PROCESS_BEGIN();
 
-  while(True) {
+  while(true) {
     // Define o temporizador para 3 segundos
     etimer_set(&timer, CLOCK_SECOND * 3);
 
@@ -80,7 +80,7 @@ PROCESS_THREAD(temperature_process, ev, data)
   
   PROCESS_BEGIN();
 
-  while(True) {
+  while(true) {
     // Define o temporizador para 3 segundos
     etimer_set(&timer, CLOCK_SECOND * 3);
 
@@ -109,7 +109,7 @@ PROCESS_THREAD(alert_process, ev, data)
 {
   PROCESS_BEGIN();
 
-  while(True) {
+  while(true) {
     // Espera por um evento de alerta
     PROCESS_WAIT_EVENT();
 
